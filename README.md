@@ -2,7 +2,7 @@
 
 This is an example application that makes use of [circuitry](https://github.com/kapost/circuitry) fan-out messaging.
 
-# Installation
+## Installation
 
 1. Clone this repository: `git clone git@github.com:kapost/circuitry-example.git`
 2. Update environment variables:
@@ -10,7 +10,7 @@ This is an example application that makes use of [circuitry](https://github.com/
   * Edit `.env` to set your AWS access/secret keys.  (Note that you'll need an [AWS account](http://aws.amazon.com) with rights to create/manage SQS and SNS.)
 3. Install gems: `bundle install`
 
-# Usage:
+## Usage
 
 1. Run the subscriber.  (Note that this is a long-running process that must be exited via `Ctrl+C`.)
 
