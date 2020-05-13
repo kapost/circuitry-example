@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'circuitry'
 require 'dotenv'
 
@@ -11,11 +13,11 @@ Circuitry.publisher_config do |c|
   c.async_strategy = :thread
 
   c.on_async_exit = proc do
-    puts "Publisher done."
+    puts 'Publisher done.'
   end
 
   # TODO: replace this with a list of topics that will be published to
-  c.topic_names = %W[
+  c.topic_names = %w[
     example-circuitry-topic
   ]
 end
@@ -28,14 +30,14 @@ Circuitry.subscriber_config do |c|
   c.async_strategy = :thread
 
   c.on_async_exit = proc do
-    puts "Subscriber done."
+    puts 'Subscriber done.'
   end
 
   # TODO: rename the queue to something more meaningful for your project
-  c.queue_name = 'example-circuitry-queue'
+  c.queue_name = 'optify-test-queue'
 
   # TODO: replace this with a list of topics that the queue should subscribe to
-  c.topic_names = %W[
+  c.topic_names = %w[
     example-circuitry-topic
   ]
 end

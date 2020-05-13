@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  sqs-pub:
+    build: .
+    image: api
+    command: bash -c  "bundle exec ruby ./publisher.rb"
+    volumes:
+      - .:/code
+    ports:
+      - '4000:3000'
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+
+  sqs-sub:
+    build: .
+    image: api
+    command: bash -c  "bundle exec ruby ./subscriber.rb"
+    volumes:
+      - .:/code
+    ports:
+      - '5000:3000'
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+  # mailcatcher:
+  #   image: zolweb/docker-mailcatcher:latest
+  #   ports:
+  #   - "1025:1025"
+  #   - "1080:1080"
+
+volumes:
+  postgres:
